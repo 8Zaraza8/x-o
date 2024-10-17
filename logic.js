@@ -17,10 +17,14 @@ function click(row, col) {
     checkWinner();
 }
 
+function updatingVariables() {
+    uniqueValues = [];
+    countNonEmpty = 0;
+}
+
 function checkWinner() {
     for (let row of playingBorder) {
-        let uniqueValues = [];
-        let countNonEmpty = 0;
+        updatingVariables();
         
         for (let item of row) {
             if (item != '') {
@@ -36,8 +40,7 @@ function checkWinner() {
     }
 
     for (let i = 0; i < 3; i++) {
-        uniqueValues = [];
-        countNonEmpty = 0;
+        updatingVariables();
         
         for (let j = 0; j < 3; j++) {
             if (playingBorder[j][i] != '') {
@@ -52,8 +55,7 @@ function checkWinner() {
         }
     }
     
-    uniqueValues = [];
-    countNonEmpty = 0;
+    updatingVariables();
     for (let i = 0; i < 3; i++) {
         uniqueValues.push(playingBorder[i][i]);
         
@@ -68,8 +70,7 @@ function checkWinner() {
         }
     }
     
-    uniqueValues = [];
-    countNonEmpty = 0;
+    updatingVariables();
     for (let i = 0; i < 3; i++) {
         uniqueValues.push(playingBorder[2-i][i]);
         
